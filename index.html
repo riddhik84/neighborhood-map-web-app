@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Neighbothood Map - Mumbai</title>
+    <meta name="description" content="Neighbothood Map Mumbai">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+
+  </head>
+
+  <body>
+   <div id="side-nav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <input type="text" id="searchLocation" onkeyup="myFunction()" placeholder="Search..">
+    <li><a href="#">Gateway of India</a></li>
+    <li><a href="#">ChurchGate</a></li>
+    <li><a href="#">Bandra Worli Sea Link</a></li>
+    <li><a href="#">Sanjay Gandhi National Park</a></li>
+    <li><a href="#">Breach Candy Hospital</a></li>
+    <li><a href="#">The Oberoi Hotel</a></li>
+    <li><a href="#">Horniman Circle</a></li>
+    <li><a href="#">Nehru Planetorium</a></li>
+    <li><a href="#">Chhatrapati Shivaji Terminus Area</a></li>
+    <li><a href="#">Metro Inox Cinema</a></li>
+  </div>
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Neighbothood Map Mumbai</span>
+    <div id="map"></div>
+
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRLGCKB4CGsOSgT6b3-EMYE83CP7-y5I4  &v=3&callback=mapMarker">
+    </script>
+
+    <script src="js/app.js"></script>
+    <script src="js/helper.js"></script>
+    <script src="js/knockout-3.4.2.js"></script>
+  </body>
+</html>
