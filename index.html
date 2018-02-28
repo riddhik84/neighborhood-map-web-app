@@ -18,23 +18,22 @@
   <body>
    <div id="side-nav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <input type="text" id="searchLocation" onkeyup="myFunction()" placeholder="Search..">
-    <li><a href="#">Gateway of India</a></li>
-    <li><a href="#">ChurchGate</a></li>
-    <li><a href="#">Bandra Worli Sea Link</a></li>
-    <li><a href="#">Sanjay Gandhi National Park</a></li>
-    <li><a href="#">Breach Candy Hospital</a></li>
-    <li><a href="#">The Oberoi Hotel</a></li>
-    <li><a href="#">Horniman Circle</a></li>
-    <li><a href="#">Nehru Planetorium</a></li>
-    <li><a href="#">Chhatrapati Shivaji Terminus Area</a></li>
-    <li><a href="#">Metro Inox Cinema</a></li>
+	<input type="text" class="form-control" data-bind="value: Query, valueUpdate: 'keyup'" placeholder="Search.." autocomplete="off">
+	<ul class="m_markers" data-bind="foreach: m_markers">
+	<li data-bind="text: $data, 
+               css: { selected: $data == $root.select_marker() },
+               click: $root.selectLocation">
+    </li>
+	
+	<ul data-bind="foreach: searchResults">
+		<li data-bind="text: $data"></li>
+	</ul>
   </div>
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Neighbothood Map Mumbai</span>
     <div id="map"></div>
 
     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRLGCKB4CGsOSgT6b3-EMYE83CP7-y5I4  &v=3&callback=mapMarker">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRLGCKB4CGsOSgT6b3-EMYE83CP7-y5I4&v=3&callback=initMap">
     </script>
 
     <script src="js/app.js"></script>
