@@ -2,18 +2,7 @@
 Map markers
 */
 const centerMark = [18.972711, 72.804394];
-let mumbaiMarkers = [
-  ['Gateway of India', 18.921984, 72.834654],
-  ['ChurchGate', 18.935323, 72.827159],
-  ['Bandra Worli Sea Link', 19.030149, 72.81561],
-  ['Sanjay Gandhi National Park', 19.221035, 72.906792],
-  ['Breach Candy Hospital', 18.972711, 72.804394],
-  ['The Oberoi Hotel', 18.926975, 72.820452],
-  ['Horniman Circle', 18.931832, 72.836156],
-  ['Nehru Planetorium', 18.990059, 72.814797],
-  ['Chhatrapati Shivaji Terminus Area', 18.94487, 72.833672],
-  ['Metro Inox Cinema', 18.943013, 72.828878]
-];
+
 const timeout = 3000;
 var map;
 
@@ -35,27 +24,6 @@ function AppViewModel() {
 
   this.m_selected_markers = [];
   this.searchOption = ko.observable("");
-
-  this.populateInfoWindow = function(marker, infowindow) {
-        if (infowindow.marker != marker) {
-            infowindow.setContent('');
-            infowindow.marker = marker;
-            infowindow.setContent("Hello");
-            infowindow.open(map, marker);
-
-            infowindow.addListener('closeclick', function() {
-                infowindow.marker = null;
-            });
-        }
-    };
-
-  this.populateAndBounceMarker = function() {
-        self.populateInfoWindow(this, self.largeInfoWindow);
-        this.setAnimation(google.maps.Animation.BOUNCE);
-        setTimeout((function() {
-            this.setAnimation(null);
-        }).bind(this), 1400);
-  };
 
   this.showMap = function() {
       map = new google.maps.Map(document.getElementById('map'), {
@@ -88,7 +56,30 @@ function AppViewModel() {
         }
     }
 
+    this.populateInfoWindow = function(marker, infowindow) {
+        if (infowindow.marker != marker) {
+            infowindow.setContent('');
+            infowindow.marker = marker;
+            infowindow.setContent('self.htmlContent + self.htmlContentFoursquare');
+            infowindow.open(map, marker);
+
+            infowindow.addListener('closeclick', function() {
+                infowindow.marker = null;
+            });
+        }
+    };
+
+  this.populateAndBounceMarker = function() {
+        self.populateInfoWindow(self, self.largeInfoWindow);
+        this.setAnimation(google.maps.Animation.BOUNCE);
+        setTimeout((function() {
+            this.setAnimation(null);
+        }).bind(this), 1400);
+  };
+
   this.showMap();
+
+
 
   this.myLocationsFilter = ko.computed(function() {
         var result = [];

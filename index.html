@@ -16,21 +16,24 @@
 
   <body>
    <div id="side-nav" class="sidenav">
-        <input class="search" data-bind="textInput: searchOption, valueUpdate: 'afterkeydown'" placeholder="Search Locations...">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <center><input class="search" data-bind="textInput: searchOption, valueUpdate: 'afterkeydown'" placeholder="Search Locations..."></center>
         <hr class="sidebar_hr">
             <ul class="nav flex-column" data-bind="foreach: myLocationsFilter">
                 <a href="#"><li class="nav-item text-white location_list" data-bind="text: title, click: $parent.populateAndBounceMarker"></li></a>
             </ul>
   </div>
-  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Neighbothood Map Mumbai</span>
+  <span style="font-size:25px;cursor:pointer" onclick="openNav()">&#9776; Neighbothood Map Mumbai</span>
     <div id="map"></div>
 
     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRLGCKB4CGsOSgT6b3-EMYE83CP7-y5I4&v=3&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAFtBCsVkxqSaoArsW6RmKxv-6uYJjHjY&v=3&callback=initMap">
     </script>
+
 
     <script src="js/app.js"></script>
     <script src="js/helper.js"></script>
+    <script src="js/markers.js"></script>
     <script src="js/knockout-3.4.2.js"></script>
   </body>
 </html>
