@@ -12,22 +12,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="css/style.css">
-
   </head>
 
   <body>
    <div id="side-nav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-	<input type="text" class="form-control" data-bind="value: Query, valueUpdate: 'keyup'" placeholder="Search.." autocomplete="off">
-	<ul class="m_markers" data-bind="foreach: m_markers">
-	<li data-bind="text: $data, 
-               css: { selected: $data == $root.select_marker() },
-               click: $root.selectLocation">
-    </li>
-	
-	<ul data-bind="foreach: searchResults">
-		<li data-bind="text: $data"></li>
-	</ul>
+        <input class="search" data-bind="textInput: searchOption, valueUpdate: 'afterkeydown'" placeholder="Search Locations...">
+        <hr class="sidebar_hr">
+            <ul class="nav flex-column" data-bind="foreach: myLocationsFilter">
+                <a href="#"><li class="nav-item text-white location_list" data-bind="text: title, click: $parent.populateAndBounceMarker"></li></a>
+            </ul>
   </div>
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Neighbothood Map Mumbai</span>
     <div id="map"></div>
