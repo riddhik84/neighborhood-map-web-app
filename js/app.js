@@ -34,9 +34,13 @@ function AppViewModel() {
 
       this.locationInfoWindow = new google.maps.InfoWindow();
         for (let j = 0; j < mumbaiMarkers.length; j++) {
-            this.locationTitle = mumbaiMarkers[j][0];
-            this.locationLat = mumbaiMarkers[j][1];
-            this.locationLng = mumbaiMarkers[j][2];
+            //this.locationTitle = mumbaiMarkers[j][0];
+            //this.locationLat = mumbaiMarkers[j][1];
+            //this.locationLng = mumbaiMarkers[j][2];
+
+            this.locationTitle = mumbaiMarkers[j].title;
+            this.locationLat = mumbaiMarkers[j].lat;
+            this.locationLng = mumbaiMarkers[j].lng;
 
             this.marker = new google.maps.Marker({
                 map: map,

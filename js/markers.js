@@ -1,4 +1,4 @@
-var test = [
+var mumbaiMarkers = [
     {
         title: 'Discovery Docks Apartments',
         lat: 18.921984,
@@ -7,20 +7,20 @@ var test = [
     },
     {
         title: 'Nandos Restaurant',
-        lat: 51.5023146,
-        lng: -0.0187593,
+        lat: 18.935323,
+        lng:  72.827159,
         type: 'Restaurant'
     },
     {
         title: 'Canary Wharf Tube Station',
-        lat: 51.5034898,
-        lng: -0.0185944,
+        lat: 19.030149,
+        lng: 72.81561,
         type:  'Transit'
     },
     {
         title: 'One Canada Square',
-        lat: 51.5049494,
-        lng: -0.0194997,
+        lat:  19.221035,
+        lng: 72.906792,
         type:  'Shopping'
     },
     {
@@ -67,7 +67,7 @@ var test = [
     }
 ]
 
-var mumbaiMarkers = [
+var test = [
   ['Gateway of India', 18.921984, 72.834654],
   ['ChurchGate', 18.935323, 72.827159],
   ['Bandra Worli Sea Link', 19.030149, 72.81561],
