@@ -1,6 +1,8 @@
 let map;
+//Foursquare keys
 const ClientID = 'MMZUPIANXU45JYXZFMJQ1TTFPHWNEUL5R4W4DMPFMPFPNW4F';
 const ClientSecret = 'ZNGSP4YKZI5UMURCA2XXKDR2ZHPX5RKATQNYWOS1HQ1U1SC4';
+//Locations info of mumbai
 const centerMark = [18.972711, 72.804394];
 const mumbaiMarkers = [
     {
@@ -81,7 +83,7 @@ const mumbaiMarkers = [
         type: 'visit'
     }
 ];
-
+//Icons to pin on map based on location type
 var icons = {
     temple: {
             icon: 'http://maps.google.com/mapfiles/kml/pal2/icon2.png'
@@ -99,13 +101,19 @@ var icons = {
             icon: 'http://maps.google.com/mapfiles/kml/pal3/icon21.png'
         }
 };
-
+/**
+* @description knockout model function
+* @constructor
+*/
 function AppViewModel() {
     var self = this;
 
     this.m_markers = [];
     this.searchResults = ko.observable("");
 
+    /**
+    * @description a function to show map, create info window and markers
+    */
     this.showMap = function() {
         map = new google.maps.Map(document.getElementById('map'), {
           zoom: 12,
@@ -139,6 +147,11 @@ function AppViewModel() {
         }
     };
 
+    /**
+    * @description When a marker is clicked, animate and show the infowindow to the user
+    * The infowindow contains info captured using Forsquare APIs
+    * Preffered method: Usage of places APIs where forsquare is not much popular
+    */
     this.animateAndPopMarker = function() {
         let marker = this;
         let infowindow = self.mapInfoWindow;
@@ -192,20 +205,17 @@ function AppViewModel() {
                     infowindow.setContent(infoWindowContent);
             });*/
             infowindow.open(map, marker);
-
-            infowindow.addListener('closeclick', function() {
-                infowindow.marker = null;
-                });
             }
 
-        this.setAnimation(google.maps.Animation.BOUNCE);
-        setTimeout((function() {
-            this.setAnimation();
-        }).bind(this), 1800);
+            this.setAnimation(google.maps.Animation.BOUNCE);
+            setTimeout((function() {
+                this.setAnimation();
+            }).bind(this), 2000);
     };
 
+    //Launch application map
     this.showMap();
-
+    //Search markers and update map based on search result
     this.searchLocation = ko.computed(function() {
         var finalResult = [];
         for (var k = 0; k < this.m_markers.length; k++) {
@@ -221,6 +231,7 @@ function AppViewModel() {
     }, this);
 }
 
+//Knockout binding
 function initMap() {
     ko.applyBindings(new AppViewModel());
 }

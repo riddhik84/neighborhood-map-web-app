@@ -10,6 +10,9 @@
 * Download all the files of the project in your local machine
 * Open index.html file in any browser
 
+## Library
+* Used Foursquare library to get details of a marker location
+
 ## Screenshots
 
 <img src="images/mapmarker.png" width="70%" />
