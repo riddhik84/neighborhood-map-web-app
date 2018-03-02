@@ -1,38 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
+    <!-- meta -->
     <meta charset="utf-8">
     <title>Neighbothood Map - Mumbai</title>
     <meta name="description" content="Neighbothood Map Mumbai">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- libs -->
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <!-- style -->
     <link rel="stylesheet" href="css/style.css">
-  </head>
 
-  <body>
-   <div id="side-nav" class="sidenav">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div id="side-nav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <center><input class="search" data-bind="textInput: searchOption, valueUpdate: 'afterkeydown'" placeholder="Search Locations..."></center>
-        <hr class="sidebar_hr">
-            <ul class="nav flex-column" data-bind="foreach: myLocationsFilter">
-                <a href="#"><li class="nav-item text-white location_list" data-bind="text: title, click: $parent.populateAndBounceMarker"></li></a>
+            <center><input class="search"
+                data-bind="textInput: searchResults, valueUpdate: 'afterkeydown'"
+                placeholder="Search...">
+            </center>
+            <hr>
+            <ul class="nav flex-column" data-bind="foreach: searchLocation">
+                <a href="#"><li class="text-white"
+                    data-bind="text: title,
+                    click: $parent.animateAndPopMarker">
+                    </li>
+                </a>
             </ul>
-  </div>
-  <span style="font-size:25px;cursor:pointer" onclick="openNav()">&#9776; Neighbothood Map Mumbai</span>
+    </div>
+    <span class="titlebar" onclick="openNav()">&#9776;Neighbothood Map Mumbai</span>
+    <!-- Map -->
     <div id="map"></div>
 
-   <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAFtBCsVkxqSaoArsW6RmKxv-6uYJjHjY  &v=3&callback=initMap">
-    </script>
-
+    <!-- JavaScripts -->
     <script src="js/app.js"></script>
     <script src="js/helper.js"></script>
-    <script src="js/markers.js"></script>
     <script src="js/knockout-3.4.2.js"></script>
-  </body>
+
+    <!-- map init -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyBAFtBCsVkxqSaoArsW6RmKxv-6uYJjHjY&libraries=places&callback=initMap">
+    </script>
+</body>
 </html>
