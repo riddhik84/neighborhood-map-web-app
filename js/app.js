@@ -181,7 +181,9 @@ function AppViewModel() {
                 infoWindowContent = '<div><strong>' + location_name + '</strong><br>'
                 +  address + '</div>'
                 +  crossStreet + '</div>'
-                +  city + '</div>';
+                +  city + '</div>'
+                + '</br>'
+                +  '<IMG BORDER="0" ALIGN="center" SRC="images/Foursquare300.png">';
                 console.log("infoWindowContent: ", infoWindowContent);
                 infowindow.setContent(infoWindowContent);
 
