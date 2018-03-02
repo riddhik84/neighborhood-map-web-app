@@ -166,9 +166,7 @@ function AppViewModel() {
             let crossStreet = '';
             let city = '';
 
-            fsURL = 'https://api.foursquare.com/v2/venues/search?ll='
-            + marker.lat + ',' + marker.lng + '&client_id=' + ClientID + '&client_secret='
-            + ClientSecret + '&v=20180302';
+            fsURL = 'https://api.foursquare.com/v2/venues/search?ll='+ marker.lat + ',' + marker.lng + '&client_id=' + ClientID + '&client_secret='+ ClientSecret + '&v=20180302';
 
             $.getJSON(fsURL).done(function(marker) {
                 var res = marker.response.venues[0];
@@ -178,19 +176,15 @@ function AppViewModel() {
                 address = res.location.address;
                 city = res.location.city;
 
-                infoWindowContent = '<div><strong>' + location_name + '</strong><br>'
-                +  address + '</div>'
-                +  crossStreet + '</div>'
-                +  city + '</div>'
-                + '</br>'
-                +  '<IMG BORDER="0" ALIGN="center" SRC="images/Foursquare300.png">';
+                infoWindowContent = '<div><strong>' + location_name + '</strong><br>'+  address + '</div>'+  crossStreet + '</div>'+  city + '</div>'+ '</br>'+  '<IMG BORDER="0" ALIGN="center" SRC="images/Foursquare300.png">';
                 console.log("infoWindowContent: ", infoWindowContent);
                 infowindow.setContent(infoWindowContent);
 
                 //fsVanueURL = 'https://api.foursquare.com/v2/venues/'
                 //vanue_Id+'?&oauth_token=4XLQECEG3ZF0YP4CAGFS21ROIH25K3JKS5CUKZEDLRCCHRXB&v=20180302';
-            })
-
+                });
+            infowindow.open(map, marker);
+            }
             /*var service = new google.maps.places.PlacesService(map);
             service.getDetails({placeId: marker.placeId},
                 function(place, status) {
@@ -206,9 +200,7 @@ function AppViewModel() {
                     console.log("infoWindowContent: ", infoWindowContent);
                     infowindow.setContent(infoWindowContent);
             });*/
-            infowindow.open(map, marker);
-            }
-
+            //}
             this.setAnimation(google.maps.Animation.BOUNCE);
             setTimeout((function() {
                 this.setAnimation();
