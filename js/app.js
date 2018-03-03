@@ -226,9 +226,11 @@ function AppViewModel() {
         return finalResult;
     }, this);
 }
-
+ /**
+    * @description Error handling for Google maps
+*/
 function googleError(){
-    alert("Error leading google maps");
+    alert("Error loading google maps");
 }
 
 //Knockout binding
