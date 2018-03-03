@@ -182,6 +182,8 @@ function AppViewModel() {
 
                 //fsVanueURL = 'https://api.foursquare.com/v2/venues/'
                 //vanue_Id+'?&oauth_token=4XLQECEG3ZF0YP4CAGFS21ROIH25K3JKS5CUKZEDLRCCHRXB&v=20180302';
+                }).fail(function() {
+                    alert("Failed to load Foursquare API");
                 });
             infowindow.open(map, marker);
             }
@@ -223,6 +225,10 @@ function AppViewModel() {
         }
         return finalResult;
     }, this);
+}
+
+function googleError(){
+    alert("Error leading google maps");
 }
 
 //Knockout binding
